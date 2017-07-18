@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html ng-app='payItForward'>
+	<head>
+		<title>Angular JS Routes example</title>
+		<script src = "https://code.angularjs.org/1.6.5/angular.min.js" charset="utf-8"></script>
+		<script src = "https://code.angularjs.org/1.6.5/angular.min.js" charset="utf-8"></script>	
+
+		<script>
+			var app = angular.module('payItForward', ['ngRoute']);
+			app.config(function($routeProvider){
+				$routeProvider
+				.when('/route1', {
+					templateUrl: '/main/apps/first_app/static/first_app/html/view1.html'
+				})
+				.when('/route2', {
+					templateUrl: '/static/first_app/html/view2.html'
+				})
+				.otherwise({
+					redirectTo: '/'
+				});
+			});
+
+			app.controller('RouteController1', function($scope){
+				$scope.sports = ['golf', 'basketball', 'tennis', 'football']
+			});
+			app.controller('RouteController2', function($scope){
+				$scope.message = "We are using controller"
+			});
+		</script>
+
+	</head>
+	<body >
+		<div ng-view>
+		</div>	
+		<a href="#!/route1">Route 1</a><br/>
+		<a href="#!/route2">Route 2</a><br/>
+
+
+	</body>
+</html>

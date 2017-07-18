@@ -1,13 +1,38 @@
+
+
+
 <html ng-app = 'app'>
 	<head>
 		<meta charset="utf-8">
-		<title>Document</title>
-		<script src = "node_modules/angular/angular.js" charset="utf-8"></script>
-		<script src="../../../../../node_modules/angular-route/angular-route.js" charset="utf-8"></script>
-			{% load static %}
+		{% load static %}		
+		<link rel="stylesheet" href="{% static 'first_app/css/sign_in.css' %}" media="screen" title="no title" charset="utf-8">
+		<script src = "https://code.angularjs.org/1.6.5/angular.min.js" charset="utf-8"></script>
+		<script src = "https://code.angularjs.org/1.6.5/angular.min.js" charset="utf-8"></script>
+		<script>
+			var app = angular.module('app', ['ngRoute']);
+			app.config(function($routeProvider){
+				.when('/', {
+					templateUrl: 'partials/first_app/partial_1.html'
+				})
+			})
+		</script>
+
+
 	</head>
+
 	<body>
-		<h1>Hello World</h1>
-		{{email}} and {{name}}
+
+		<div class="topnav">
+			<div class="topnav_sub">
+				<a href="payItForward">payItForward</a>
+			</div>
+			<div>
+				<a class="active" href="#howitworks">How It Works</a>
+				<a href="successstories">Success Stories</a>
+				<a href="help">Help</a>
+			</div>
+		</div>
 	</body>
 </html>
+
+

@@ -5,14 +5,18 @@
 
 # Create your views here.
 from django.shortcuts import render, HttpResponse, redirect
+from django.conf import settings
 # the index function is called when root is visited
 
-def index(request):
-	context = {
-		"email" : "blog@gmail.com", 
-		"name" : "mike"
-	}
-	return render(request, "first_app/index.html", context)
+def home(req):
+	return render(req, 'first_app/main.html')
+
+#def index(request):
+#	context = {
+#		"email" : "blog@gmail.com", 
+#		"name" : "mike"
+#	}
+#	return render(request, "first_app/index.html", context)
 
 #def index(request):
 #	response = "Hello, I am your first request!"
